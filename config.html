@@ -33,7 +33,7 @@
           <label for="selectList">
             </br>Unit:
           </label>
-          <select id="mode" style="width: 100%;">
+          <select id="unit" style="width: 100%;">
             <option value="mgdl">mg/dL</option>
             <option value="mmol">mmol</option>
           </select>
@@ -61,6 +61,11 @@
       function saveOptions() {
         var options = {
           'mode': $("#mode").val(),
+          'accountName': $("#accountName").val(),
+          'password': $("#password").val(),
+          'high': $("#high").val(),
+          'low': $("#low").val(),
+          'unit': $("#unit").val(),
         }
         return options;
       }
