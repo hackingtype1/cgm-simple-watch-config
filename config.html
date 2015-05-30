@@ -2,7 +2,7 @@
 <html>
   
   <head>
-    <title>CGM Watch Configure</title>
+    <title>Simple CGM</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
@@ -18,12 +18,24 @@
       <div data-role="content">
         <div data-role="fieldcontain">
           <label for="selectList">
-            </br>Select Use Mode: </label>
+            </br>Select Use Mode:</label>
           <select id="mode" style="width: 100%;">
-            <option value="Nightscout">Nightscout</option>
             <option value="Share">Share</option>
-            <option value="Rogue">Rogue</option>
+            <option value="Nightscout [FUTURE]">Nightscout</option>
+            <option value="Rogue [4 HACKERS]">Rogue</option>
           </select>
+          <fieldset data-role="controlgroup" id="Radio_Options" data-type="horizontal">
+            <legend>
+              <strong>Select Unit:</strong>
+            </legend>
+            <input name="tipo_cadastro" type="radio" id="mgdl_form" " onchange="onchange_handler(this, 'mgdl'); " onClick="clearFunction()
+            " onmouseup="onchange_handler(this, 'mgdl'); " value="mgdl_form "/>
+						<label for="mgdl_form ">mg/dl</label>
+
+						<input type="radio " name="tipo_cadastro " id="mmol_form " value="mmol_form " !important" onClick="myFunction()"
+            onchange="onchange_handler(this, 'mmol');" onmouseup="onchange_handler(this, //'mmol');">
+            <label for="mmol_form">mmol</label>
+          </fieldset>
         </div>
         <div class="ui-body ui-body-b">
           <fieldset class="ui-grid-a">
