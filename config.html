@@ -19,24 +19,29 @@
         <div data-role="fieldcontain">
           <label for="selectList">
             </br>Mode:</label>
-          <select id="mode" style="width: 100%;">
+            <select id="mode" style="width: 100%;">
             <option value="Share">Share</option>
             <option value="Nightscout">Nightscout [FUTURE]</option>
             <option value="Rogue">Rogue [4 HACKERS]</option>
-          </select>
+            </select>
+          <div data-role="fieldcontain">
+            <label for="username">Share Username:</label>
+            <input type="text" name="username" id="username" value="" />
+            <label for="password">Share Password:</label>
+            <input type="password" name="password" id="password" value="" />
+          </div>
           <label for="selectList">
-            </br>Unit:</label>
+            </br>Unit:
+          </label>
           <select id="mode" style="width: 100%;">
             <option value="mgdl">mg/dL</option>
             <option value="mmol">mmol</option>
           </select>
           <div data-role="fieldcontain">
-            <label for="username">Share Username:</label>
-            <input type="text" name="username" id="username" value="" />
-          </div>
-          <div data-role="fieldcontain">
-            <label for="password">Share Password:</label>
-            <input type="password" name="password" id="password" value="" />
+            <label for="high">High Threshold:</label>
+            <input type="number" name="high" id="high" value="180" />
+            <label for="low">Low Threshold:</label>
+            <input type="number" name="low" id="low" value="80" />
           </div>
         </div>
         <div class="ui-body ui-body-b">
