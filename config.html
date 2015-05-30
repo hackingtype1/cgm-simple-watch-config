@@ -21,20 +21,23 @@
             </br>Mode:</label>
           <select id="mode" style="width: 100%;">
             <option value="Share">Share</option>
-            <option value="Nightscout [FUTURE]">Nightscout</option>
-            <option value="Rogue [4 HACKERS]">Rogue</option>
+            <option value="Nightscout">Nightscout [FUTURE]</option>
+            <option value="Rogue">Rogue [4 HACKERS]</option>
           </select>
-            <legend>
-              <strong>Select Unit:</strong>
-            </legend>
-            <input name="tipo_cadastro" type="radio" id="mgdl_form" " onchange="onchange_handler(this, 'mgdl'); " onClick="clearFunction()
-            " onmouseup="onchange_handler(this, 'mgdl'); " value="mgdl_form "/>
-						<label for="mgdl_form ">mg/dl</label>
-
-						<input type="radio " name="tipo_cadastro " id="mmol_form " value="mmol_form " !important" onClick="myFunction()"
-            onchange="onchange_handler(this, 'mmol');" onmouseup="onchange_handler(this, //'mmol');">
-            <label for="mmol_form">mmol</label>
-
+          <label for="selectList">
+            </br>Unit:</label>
+          <select id="mode" style="width: 100%;">
+            <option value="mgdl">mg/dL</option>
+            <option value="mmol">mmol</option>
+          </select>
+          <div data-role="fieldcontain">
+            <label for="username">Share Username:</label>
+            <input type="text" name="username" id="username" value="" />
+          </div>
+          <div data-role="fieldcontain">
+            <label for="password">Share Password:</label>
+            <input type="password" name="password" id="password" value="" />
+          </div>
         </div>
         <div class="ui-body ui-body-b">
           <fieldset class="ui-grid-a">
