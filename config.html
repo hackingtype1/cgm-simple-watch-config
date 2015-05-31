@@ -57,9 +57,15 @@
            <div data-role="fieldcontain">
               <label for="api">API Endpoint:</label>
               <input type="text" name="api" id="api" value="" />
+              <label for="selectList">
+              </br>Vibration:</label>
+            <select id="vibe2" name="vibe2" style="width: 100%;">
+              <option value="new">New BGs & Alerts</option>
+              <option value="alerts">Alerts Only</option>
+            </select>
             </div>
          </form>  
-        <div class="ui-body ui-body-b">
+        <div class="ui-body ui-body-b" id = "subcan">
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
@@ -74,9 +80,13 @@
     </div>
     <script>
       $("#mode").on("change", function() {
-          $("#" + $(this).val()).show().siblings();
+          $("#" + $(this).val()).show().siblings().hide();
+          $("#form-shower").show();
+          $("#subcan").show();
       })
       function saveOptions() {
+        var vibes = ($("#vibe").val() == '')? $("#vibe2").val() : $("#vibe").val()
+        
         var options = {
           'mode': $("#mode").val(),
           'accountName': $("#accountName").val(),
@@ -84,7 +94,7 @@
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
-          'vibe': $("#vibe").val(),
+          'vibe': vibes,
           'api': $("#api").val(),
         }
 
