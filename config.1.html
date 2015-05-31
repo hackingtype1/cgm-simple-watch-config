@@ -71,6 +71,18 @@
         return options;
       }
 
+      function storeOptions() {
+        var options = {
+          'mode': $("#mode").val(),
+          'accountName': $("#accountName").val(),
+          'high': $("#high").val(),
+          'low': $("#low").val(),
+          'unit': $("#unit").val(),
+        }
+
+        return options;
+      }
+
       $().ready(function() {
         
         var old_options = JSON.parse(window.localStorage.getItem('options')) || {   'mode': 'Share' ,
@@ -78,12 +90,10 @@
             'low' : 80,
             'unit': 'mgdl',
             'accountName': '',
-            'password': '' 
         };;
         
         $('#mode').val(old_options.mode);
         $('#accountName').val(old_options.accountName);
-        $('#password').val(old_options.password);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#unit').val(old_options.unit);
@@ -97,7 +107,7 @@
           console.log("Submit");
 
           var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-          window.localStorage.setItem('options', JSON.stringify(saveOptions()));
+          window.localStorage.setItem('options', JSON.stringify(storeOptions()));
           
           console.log("Warping to: " + location);
           console.log(location);
