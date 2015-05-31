@@ -18,9 +18,8 @@
       <div data-role="content">
         <div data-role="fieldcontain">
           <form id="form-shower">
-            <label for="selectList">
-              </br>Mode:</label>
             <select id="mode" style="width: 100%;">
+              <option>Select Mode:</option>
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout [FUTURE]</option>
               <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
@@ -53,6 +52,13 @@
             </select>
         </div>
         </form>
+         <form name="Nightscout" id="Nightscout" style="display:none"></form>
+         <form name="Rogue" id="Rogue" style="display:none">
+           <div data-role="fieldcontain">
+              <label for="api">API Endpoint:</label>
+              <input type="text" name="api" id="api" value="" />
+            </div>
+         </form>  
         <div class="ui-body ui-body-b">
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
@@ -79,6 +85,7 @@
           'low': $("#low").val(),
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
+          'api': $("#api").val(),
         }
 
         return options;
@@ -92,6 +99,7 @@
           'low': $("#low").val(),
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
+          'api': $("#api").val(),
         }
 
         return options;
@@ -104,13 +112,15 @@
             'low' : 80,
             'unit': 'mgdl',
             'accountName': '',
-            'vibe' : 'new'
+            'vibe' : 'new',
+            'api' : '',
         };
         
         $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
+        $('#api').val(old_options.api);
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
         
