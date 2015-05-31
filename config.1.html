@@ -67,12 +67,21 @@
           'low': $("#low").val(),
           'unit': $("#unit").val(),
         }
-
+        window.localStorage.setItem('options', options.val());
         return options;
       }
 
       $().ready(function() {
         
+        var old_options = window.localStorage.getItem('options');
+        
+        $('select[name=mode]').val(old_options.mode);
+        $('select[name=accountName]').val(old_options.accountName);
+        $('select[name=password]').val(old_options.password);
+        $('select[name=high]').val(old_options.high);
+        $('select[name=low]').val(old_options.low);
+        $('select[name=unit]').val(old_options.unit);
+         
         $("#b-cancel").click(function() {
           console.log("Cancel");
           document.location = "pebblejs://close";
