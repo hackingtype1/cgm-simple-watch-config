@@ -105,7 +105,7 @@
         $('#low').val(old_options.low);
         $("#unit option[value='"+ old_options.unit + "']").attr("selected","selected");
         $('#vibe').val(old_options.vibe).find("option[value='" + old_options.vibe +"']").prop('selected', true);
-        $('select').selectmenu("refresh",true);
+        $('#unit').selectmenu("refresh",true);
          
         $("#b-cancel").click(function() {
           console.log("Cancel");
