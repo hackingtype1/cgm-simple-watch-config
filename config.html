@@ -51,33 +51,15 @@
               <option value="alerts">Alerts Only</option>
             </select>
         </div>
-         <div class="ui-body ui-body-b">
-          <fieldset class="ui-grid-a">
-            <div class="ui-block-a">
-              <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
-            </div>
-            <div class="ui-block-b">
-              <button type="submit" data-theme="a" id="b-submit">Submit</button>
-            </div>
         </form>
-         <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...
-           <div class="ui-body ui-body-b">
-          <fieldset class="ui-grid-a">
-            <div class="ui-block-a">
-              <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
-            </div>
-            <div class="ui-block-b">
-              <button type="submit" data-theme="a" id="b-submit">Submit</button>
-            </div>
-          </fieldset>
-        </div>
-         </form>
+         <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
          <form name="Rogue" id="Rogue" style="display:none">
            <div data-role="fieldcontain">
               <label for="api">API Endpoint:</label>
               <input type="text" name="api" id="api" value="" />
             </div>
-          <div class="ui-body ui-body-b">
+         </form>  
+        <div class="ui-body ui-body-b">
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
@@ -85,9 +67,6 @@
             <div class="ui-block-b">
               <button type="submit" data-theme="a" id="b-submit">Submit</button>
             </div>
-          </fieldset>
-        </div>
-         </form>  
           </fieldset>
         </div>
       </div>
@@ -95,8 +74,7 @@
     </div>
     <script>
       $("#mode").on("change", function() {
-          $("#" + $(this).val()).show().siblings().hide();
-          $("#" + $(this).show());
+          $("#" + $(this).val()).show().siblings();
       })
       function saveOptions() {
         var options = {
