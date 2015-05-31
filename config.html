@@ -20,7 +20,7 @@
           <form id="form-shower">
             <label for="selectList">
               </br>Mode:</label>
-            <select id="mode" name="mode" style="width: 100%;">
+            <select id="mode" style="width: 100%;">
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout [FUTURE]</option>
               <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
@@ -68,7 +68,7 @@
     </div>
     <script>
       $("#mode").on("change", function() {
-          $("#" + $(this).val()).show().siblings().hide();
+          $("#" + $(this).val()).show().siblings();
       })
       function saveOptions() {
         var options = {
