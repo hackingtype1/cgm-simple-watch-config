@@ -104,7 +104,7 @@
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $("#unit option[value='"+ old_options.unit + "']").attr("selected","selected");
-
+        $('[name=unit]').val( old_options.unit );
        // $('#unit').val(old_options.unit).find("option[value='" + old_options.unit +"']").prop('selected', true);
         $('#vibe').val(old_options.vibe).find("option[value='" + old_options.vibe +"']").prop('selected', true);
 
