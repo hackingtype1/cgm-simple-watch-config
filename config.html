@@ -103,7 +103,9 @@
         $('#accountName').val(old_options.accountName);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
-        $('#unit').val(old_options.unit).find("option[value=" + old_options.unit +"]").prop('selected', true);
+        $('#unit option:contains(' + old_options.unit + ')').prop('selected',true);
+
+        //$('#unit').val(old_options.unit).find("option[value=" + old_options.unit +"]").prop('selected', true);
         $('#vibe').val(old_options.vibe).find("option[value=" + old_options.vibe +"]").prop('selected', true);
 
          
