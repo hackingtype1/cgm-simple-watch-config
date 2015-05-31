@@ -74,7 +74,8 @@
     </div>
     <script>
       $("#mode").on("change", function() {
-          $("#" + $(this).val()).show().siblings();
+          $("#" + $(this).val()).show().siblings().hide();
+          $("#" + $(this).show());
       })
       function saveOptions() {
         var options = {
