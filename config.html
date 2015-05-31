@@ -33,8 +33,8 @@
           <label for="selectList">
             </br>Unit:</label>
           <select id="unit" style="width: 100%;">
-            <option value="0">mgdl</option>
-            <option value="1">mmol</option>
+            <option value="mgdl">mgdl</option>
+            <option value="mmol">mmol</option>
           </select>
           <div data-role="fieldcontain">
             <label for="high">High Threshold:</label>
@@ -103,8 +103,8 @@
         $('#accountName').val(old_options.accountName);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
-        $("#unit option[value="+ old_options.unit + "]").attr("selected","selected");
-        //$('[name=unit]').val( old_options.unit );
+        $("#unit option[value='"+ old_options.unit + "']").attr("selected","selected");
+        $('[name=unit]').val( old_options.unit );
        // $('#unit').val(old_options.unit).find("option[value='" + old_options.unit +"']").prop('selected', true);
         $('#vibe').val(old_options.vibe).find("option[value='" + old_options.vibe +"']").prop('selected', true);
 
