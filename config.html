@@ -99,12 +99,14 @@
             'vibe' : 'new'
         };
         
-        $('#mode').val(old_options.mode);
+        $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
-        $("#unit option[value='"+ old_options.unit + "']").attr("selected","selected");
-        $('#vibe').val(old_options.vibe).find("option[value='" + old_options.vibe +"']").prop('selected', true);
+        $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
+        $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
+        
+        $('#mode').selectmenu("refresh",true);
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
          
