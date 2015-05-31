@@ -73,7 +73,13 @@
 
       $().ready(function() {
         
-        var old_options = window.localStorage.getItem('options');
+        var old_options = JSON.parse(window.localStorage.getItem('options')) || {   'mode': 'Share' ,
+            'high': 180,
+            'low' : 80,
+            'unit': 'mg/dL',
+            'accountName': '',
+            'password': '' 
+        };;
         
         $('select[name=mode]').val(old_options.mode);
         $('select[name=accountName]').val(old_options.accountName);
@@ -91,6 +97,8 @@
           console.log("Submit");
 
           var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+          window.localStorage.setItem('options', JSON.stringify(saveOptions()));
+          
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
