@@ -16,36 +16,7 @@
         <h1>Settings</h1>
       </div>
       <div data-role="content">
-
-          <form name="Share" id="Share" style="display:none">
-
-              <label for="accountName">Share Username:</label>
-              <input type="text" name="accountName" id="accountName" value="" />
-              <label for="password">Share Password:</label>
-              <input type="password" name="password" id="password" value="" />
-
-            <label for="selectList">
-              </br>Unit:</label>
-            <select id="unit" style="width: 100%;">
-              <option value="mgdl">mg/dL</option>
-              <option value="mmol">mmol/l</option>
-            </select>
-
-              <label for="high">High Threshold:</label>
-              <input type="number" name="high" id="high" value="" />
-              <label for="low">Low Threshold:</label>
-              <input type="number" name="low" id="low" value="" />
-
-        </form>
-
-        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
-        <form name="Rogue" id="Rogue" style="display:none">
-          <div data-role="fieldcontain">
-            <label for="api">API Endpoint:</label>
-            <input type="text" name="api" id="api" value="" />
-          </div>
-        </form>
-        <div class="ui-body ui-body-b" id="subcan">
+        <div class="ui-body ui-body-b">
           <form id="form-shower">
             <select id="mode" style="width: 100%;">
               <option>Select Mode:</option>
@@ -54,6 +25,31 @@
               <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
             </select>
           </form>
+        </div>
+        <form name="Share" id="Share" style="display:none">
+          <label for="accountName">Share Username:</label>
+          <input type="text" name="accountName" id="accountName" value="" />
+          <label for="password">Share Password:</label>
+          <input type="password" name="password" id="password" value="" />
+          <label for="selectList">
+            </br>Unit:</label>
+          <select id="unit" style="width: 100%;">
+            <option value="mgdl">mg/dL</option>
+            <option value="mmol">mmol/l</option>
+          </select>
+          <label for="high">High Threshold:</label>
+          <input type="number" name="high" id="high" value="" />
+          <label for="low">Low Threshold:</label>
+          <input type="number" name="low" id="low" value="" />
+        </form>
+        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
+        <form name="Rogue" id="Rogue" style="display:none">
+          <div data-role="fieldcontain">
+            <label for="api">API Endpoint:</label>
+            <input type="text" name="api" id="api" value="" />
+          </div>
+        </form>
+        <div class="ui-body ui-body-b" id="subcan">
           <label for="selectList">
             </br>Vibration:</label>
           <select id="vibe" name="vibe" style="width: 100%;">
