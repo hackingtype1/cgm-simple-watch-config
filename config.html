@@ -44,23 +44,23 @@
               <label for="low">Low Threshold:</label>
               <input type="number" name="low" id="low" value="" />
             </div>
+        </div>
+        </form>
+        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
+        <form name="Rogue" id="Rogue" style="display:none">
+          <div data-role="fieldcontain">
+            <label for="api">API Endpoint:</label>
+            <input type="text" name="api" id="api" value="" />
+          </div>
+        </form>
+        <div class="ui-body ui-body-b" id="subcan">
+          <fieldset class="ui-grid-a">
             <label for="selectList">
               </br>Vibration:</label>
             <select id="vibe" name="vibe" style="width: 100%;">
               <option value="1">New BGs & Alerts</option>
               <option value="0">Alerts Only</option>
             </select>
-        </div>
-        </form>
-         <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
-         <form name="Rogue" id="Rogue" style="display:none">
-           <div data-role="fieldcontain">
-              <label for="api">API Endpoint:</label>
-              <input type="text" name="api" id="api" value="" />
-            </div>
-         </form>  
-        <div class="ui-body ui-body-b" id = "subcan">
-          <fieldset class="ui-grid-a">
             <div class="ui-block-a">
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
             </div>
@@ -79,8 +79,7 @@
           $("#subcan").show();
       })
       function saveOptions() {
-        var vibes = ($("#vibe").val() == '')? $("#vibe2").val() : $("#vibe").val()
-        
+   
         var options = {
           'mode': $("#mode").val(),
           'accountName': $("#accountName").val(),
@@ -88,7 +87,7 @@
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
-          'vibe': vibes,
+          'vibe': $("#vibe").val(),
           'api': $("#api").val(),
         }
 
