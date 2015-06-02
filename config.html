@@ -17,14 +17,6 @@
       </div>
       <div data-role="content">
         <div data-role="fieldcontain">
-          <form id="form-shower">
-            <select id="mode" style="width: 100%;">
-              <option>Select Mode:</option>
-              <option value="Share">Share</option>
-              <option value="Nightscout">Nightscout [FUTURE]</option>
-              <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
-            </select>
-          </form>
           <form name="Share" id="Share" style="display:none">
             <div data-role="fieldcontain">
               <label for="accountName">Share Username:</label>
@@ -54,12 +46,20 @@
           </div>
         </form>
         <div class="ui-body ui-body-b" id="subcan">
-                      <label for="selectList">
-              </br>Vibration:</label>
-            <select id="vibe" name="vibe" style="width: 100%;">
-              <option value="1">New BGs & Alerts</option>
-              <option value="0">Alerts Only</option>
+          <form id="form-shower">
+            <select id="mode" style="width: 100%;">
+              <option>Select Mode:</option>
+              <option value="Share">Share</option>
+              <option value="Nightscout">Nightscout [FUTURE]</option>
+              <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
             </select>
+          </form>
+          <label for="selectList">
+            </br>Vibration:</label>
+          <select id="vibe" name="vibe" style="width: 100%;">
+            <option value="1">New BGs & Alerts</option>
+            <option value="0">Alerts Only</option>
+          </select>
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
