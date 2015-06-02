@@ -18,24 +18,24 @@
       <div data-role="content">
         <div data-role="fieldcontain">
           <form name="Share" id="Share" style="display:none">
-            <div data-role="fieldcontain">
+
               <label for="accountName">Share Username:</label>
               <input type="text" name="accountName" id="accountName" value="" />
               <label for="password">Share Password:</label>
               <input type="password" name="password" id="password" value="" />
-            </div>
+
             <label for="selectList">
               </br>Unit:</label>
             <select id="unit" style="width: 100%;">
               <option value="mgdl">mg/dL</option>
               <option value="mmol">mmol/l</option>
             </select>
-            <div data-role="fieldcontain">
+
               <label for="high">High Threshold:</label>
               <input type="number" name="high" id="high" value="" />
               <label for="low">Low Threshold:</label>
               <input type="number" name="low" id="low" value="" />
-            </div>
+
         </form>
         </div>
         <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
@@ -96,7 +96,6 @@
 
       function storeOptions() {
         var options = {
-          'mode': $("#mode").val(),
           'accountName': $("#accountName").val(),
           'high': $("#high").val(),
           'low': $("#low").val(),
