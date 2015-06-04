@@ -75,6 +75,7 @@
           $("#" + $(this).val()).show().siblings().hide();
           $("#form-shower").show();
           $("#subcan").show();
+          $('#remember').prop('checked', $("#remember").is(':checked'));
       })
       function saveOptions() {
    
@@ -143,7 +144,7 @@
           document.location = "pebblejs://close";
         });
 
-        document.getElementById("remember").checked=old_options.remember;  
+
 
         $("#b-submit").click(function() {
           console.log("Submit");
