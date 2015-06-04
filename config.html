@@ -134,8 +134,7 @@
         $('#remember').prop('checked', old_options.remember);
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
-        
-        $('#remember').selectmenu("refresh",true);
+
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
          
@@ -143,6 +142,8 @@
           console.log("Cancel");
           document.location = "pebblejs://close";
         });
+
+        document.getElementById("remember").checked=old_options.remember;  
 
         $("#b-submit").click(function() {
           console.log("Submit");
