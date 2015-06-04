@@ -17,7 +17,7 @@
       </div>
       <div data-role="content">
         <div class="ui-body ui-body-b" id="form-shower">
-          <form >
+          <form>
             <select id="mode" style="width: 100%;">
               <option>Select Mode:</option>
               <option value="Share">Share</option>
@@ -33,6 +33,17 @@
           <input type="password" name="password" id="password" value="" />
           <label for="remember">Remember Password:</label>
           <input type="checkbox" name="remember" id="remember">
+        </form>
+        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
+        <form name="Rogue" id="Rogue" style="display:none">
+          <div data-role="fieldcontain">
+            <label for="api">API Endpoint:</label>
+            <input type="text" name="api" id="api" value="" />
+          </div>
+        </form>
+        <div class="ui-body ui-body-b" id="subcan">
+          <b>Options for all modes:</b>
+          <hr>
           <label for="selectList">
             </br>Unit:</label>
           <select id="unit" style="width: 100%;">
@@ -43,16 +54,6 @@
           <input type="number" name="high" id="high" value="" />
           <label for="low">Low Threshold:</label>
           <input type="number" name="low" id="low" value="" />
-        </form>
-        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
-        <form name="Rogue" id="Rogue" style="display:none">
-          <div data-role="fieldcontain">
-            <label for="api">API Endpoint:</label>
-            <input type="text" name="api" id="api" value="" />
-          </div>
-        </form>
-        <div class="ui-body ui-body-b" id="subcan">
-          <b>Options for all modes:</b><hr>
           <label for="selectList">
             </br>Vibration:</label>
           <select id="vibe" name="vibe" style="width: 100%;">
