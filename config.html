@@ -32,7 +32,7 @@
           <label for="password">Share Password:</label>
           <input type="password" name="password" id="password" value="" />
           <label for="remember">Remember Password:</label>
-          <input type="checkbox" name="remember" id="remember" value="no">
+          <input type="checkbox" name="remember" id="remember">
           <label for="selectList">
             </br>Unit:</label>
           <select id="unit" style="width: 100%;">
@@ -100,9 +100,9 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
-          'remember' : $("#remember").val(),
+          'remember' : $("#remember").is(':checked'),
         }
-        if ($("#remember").val()=="yes")
+        if ($("#remember").is(':checked'))
         {
           options.password = $("#password").val();
         } else 
@@ -122,6 +122,7 @@
             'accountName': '',
             'vibe' : 'new',
             'api' : '',
+            
         };
         
         //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
@@ -130,7 +131,7 @@
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#api').val(old_options.api);
-         $('#remember').val(old_options.remember);
+        $('#remember').attr(':checked') = (old_options.remember);
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
         
