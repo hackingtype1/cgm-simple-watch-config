@@ -132,7 +132,7 @@
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#api').val(old_options.api);
-        $('#remember').prop('checked', old_options.remember);
+        $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
 
