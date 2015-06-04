@@ -31,6 +31,8 @@
           <input type="text" name="accountName" id="accountName" value="" />
           <label for="password">Share Password:</label>
           <input type="password" name="password" id="password" value="" />
+          <label for="remember">Remember Password:</label>
+          <input type="checkbox" name="remember" id="remember" value="no">
           <label for="selectList">
             </br>Unit:</label>
           <select id="unit" style="width: 100%;">
@@ -98,6 +100,13 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
+        }
+        if ($("#remember").val()=="yes")
+        {
+          options.password = $("#password").val();
+        } else 
+        {
+          options.password = "";
         }
 
         return options;
