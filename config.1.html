@@ -19,7 +19,7 @@
         <div class="ui-body ui-body-b" id="form-shower">
           <form>
             <select id="mode" style="width: 100%;">
-              <option>Select Mode:</option>
+              <option>Select Mode (REQUIRED):</option>
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout [FUTURE]</option>
               <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
@@ -71,7 +71,7 @@
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
             </div>
             <div class="ui-block-b">
-              <button type="submit" data-theme="a" id="b-submit">Submit</button>
+              <button type="submit" data-theme="a" id="b-submit" disabled>Submit</button>
             </div>
           </fieldset>
         </div>
@@ -84,6 +84,7 @@
           $("#form-shower").show();
           $("#subcan").show();
           $('#remember').prop('checked', $("#remember").is(':checked'));
+          $('#b-submit').prop('disabled', false);
       })
       function saveOptions() {
    
