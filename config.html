@@ -34,6 +34,8 @@
           <input type="password" name="password" id="password" value="" />
           <label for="remember">Remember Password</label>
           <input type="checkbox" name="remember" id="remember">
+          <input type="text" name="monogram" id="monogram" value="" autocapitalize="off"
+                autocorrect="off" maxlength="3"/>
         </form>
         <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
         <form name="Rogue" id="Rogue" style="display:none">
@@ -93,6 +95,7 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
+          'monogram': $("#monogram").val(),
         }
 
         return options;
@@ -106,6 +109,7 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
+          'monogram': $("#monogram").val(),
           'remember' : $("#remember").is(':checked'),
         }
         if ($("#remember").is(':checked'))
@@ -137,6 +141,7 @@
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#api').val(old_options.api);
+        $('#monogram').val(old_options.monogram);
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
