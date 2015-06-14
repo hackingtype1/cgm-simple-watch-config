@@ -71,7 +71,7 @@
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
             </div>
             <div class="ui-block-b">
-              <button type="submit" data-theme="a" id="b-submit" disabled>Submit</button>
+              <button type="submit" data-theme="a" id="b-submit">Submit</button>
             </div>
           </fieldset>
         </div>
@@ -150,6 +150,8 @@
 
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
+        
+        $('#b-submit').prop('disabled', true);
          
         $("#b-cancel").click(function() {
           console.log("Cancel");
