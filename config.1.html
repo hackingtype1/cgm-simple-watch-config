@@ -16,35 +16,56 @@
         <h1>Settings</h1>
       </div>
       <div data-role="content">
-        <div data-role="fieldcontain">
-          <label for="selectList">
-            </br>Mode:</label>
-            <select id="mode" name="mode" style="width: 100%;">
-            <option value="Share">Share</option>
-            <option value="Nightscout">Nightscout [FUTURE]</option>
-            <option value="Rogue">Rogue [4 HACKERS]</option>
+        <div class="ui-body ui-body-b" id="form-shower">
+          <form>
+            <select id="mode" style="width: 100%;">
+              <option>Select Mode:</option>
+              <option value="Share">Share</option>
+              <option value="Nightscout">Nightscout [FUTURE]</option>
+              <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
             </select>
-          <div data-role="fieldcontain">
-            <label for="accountName">Share Username:</label>
-            <input type="text" name="accountName" id="accountName" value="" />
-            <label for="password">Share Password:</label>
-            <input type="password" name="password" id="password" value="" />
-          </div>
-          <label for="selectList">
-            </br>Unit:
-          </label>
-          <select id="unit" name="unit" style="width: 100%;">
-            <option value="mgdl">mg/dL</option>
-            <option value="mmol">mmol</option>
-          </select>
-          <div data-role="fieldcontain">
-            <label for="high">High Threshold:</label>
-            <input type="number" name="high" id="high" value="" />
-            <label for="low">Low Threshold:</label>
-            <input type="number" name="low" id="low" value="" />
-          </div>
+          </form>
         </div>
-        <div class="ui-body ui-body-b">
+        <form name="Share" id="Share" style="display:none">
+          <label for="accountName">Share Username:</label>
+          <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
+                autocorrect="off"/>
+          <label for="password">Share Password:</label>
+          <input type="password" name="password" id="password" value="" />
+          <label for="remember">Remember Password</label>
+          <input type="checkbox" name="remember" id="remember" />
+          <label for="monogram">(PWD) Initials: </label>
+          <input type="text" name="monogram" id="monogram" value="" autocapitalize="off"
+                autocorrect="off" maxlength="3"/>
+        </form>
+        <form name="Nightscout" id="Nightscout" style="display:none">Coming soon...</form>
+        <form name="Rogue" id="Rogue" style="display:none">
+          <div data-role="fieldcontain">
+            <label for="api">API Endpoint:</label>
+            <input type="text" name="api" id="api" value="" autocapitalize="off"
+                autocorrect="off"/>
+          </div>
+        </form>
+        <div class="ui-body ui-body-b" id="subcan">
+          <b>Options for all modes:</b>
+          <hr>
+          <label for="selectList">
+            </br>Unit:</label>
+          <select id="unit" style="width: 100%;">
+            <option value="mgdl">mg/dL</option>
+            <option value="mmol">mmol/l</option>
+          </select>
+          <label for="high">High Threshold:</label>
+          <input type="number" name="high" id="high" value="" />
+          <label for="low">Low Threshold:</label>
+          <input type="number" name="low" id="low" value="" />
+          <label for="selectList">
+            </br>Vibration:</label>
+          <select id="vibe" name="vibe" style="width: 100%;">
+            <option value="1">New BGs & Alerts</option>
+            <option value="0">Alerts Only</option>
+          </select>
+          <hr>
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
               <button type="submit" data-theme="d" id="b-cancel">Cancel</button>
@@ -58,7 +79,14 @@
     </div>
     </div>
     <script>
+      $("#mode").on("change", function() {
+          $("#" + $(this).val()).show().siblings().hide();
+          $("#form-shower").show();
+          $("#subcan").show();
+          $('#remember').prop('checked', $("#remember").is(':checked'));
+      })
       function saveOptions() {
+   
         var options = {
           'mode': $("#mode").val(),
           'accountName': $("#accountName").val(),
@@ -66,6 +94,9 @@
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
+          'vibe': $("#vibe").val(),
+          'api': $("#api").val(),
+          'monogram': $("#monogram").val(),
         }
 
         return options;
@@ -73,11 +104,21 @@
 
       function storeOptions() {
         var options = {
-          'mode': $("#mode").val(),
           'accountName': $("#accountName").val(),
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
+          'vibe': $("#vibe").val(),
+          'api': $("#api").val(),
+          'monogram': $("#monogram").val(),
+          'remember' : $("#remember").is(':checked'),
+        }
+        if ($("#remember").is(':checked'))
+        {
+          options.password = $("#password").val();
+        } else 
+        {
+          options.password = "";
         }
 
         return options;
@@ -90,18 +131,31 @@
             'low' : 80,
             'unit': 'mgdl',
             'accountName': '',
-        };;
+            'vibe' : 'new',
+            'api' : '',
+            
+        };
         
-        $('#mode').val(old_options.mode);
+        //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
+        $('#password').val(old_options.password);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
-        $('#unit').val(old_options.unit);
+        $('#api').val(old_options.api);
+        $('#monogram').val(old_options.monogram);
+        $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
+        $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
+        $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
+
+        $('#unit').selectmenu("refresh",true);
+        $('#vibe').selectmenu("refresh",true);
          
         $("#b-cancel").click(function() {
           console.log("Cancel");
           document.location = "pebblejs://close";
         });
+
+
 
         $("#b-submit").click(function() {
           console.log("Submit");
