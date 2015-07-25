@@ -1,0 +1,23 @@
+{
+  "name": "Slate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pebble/slate",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "3636a8952d599fdbd84f3258199957024be2b238"
+  },
+  "_source": "git://github.com/pebble/slate.git",
+  "_target": "~0.0.1",
+  "_originalSource": "pebble-slate",
+  "_direct": true
+}
