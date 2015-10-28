@@ -65,6 +65,20 @@
             <option value="1">New BGs & Alerts</option>
             <option value="0">Alerts Only</option>
           </select>
+          <label for="selectList">
+            </br>Alert Vibration Strength:</label>
+          <select id="alert_vibe" name="alert_vibe" style="width: 100%;">
+            <option value="2">Strong</option>
+            <option value="1">Medium</option>
+            <option value="0">Soft</option>
+          </select>
+          <label for="selectList">
+            </br>BG Vibration Strength:</label>
+          <select id="bg_vibe" name="bg_vibe" style="width: 100%;">
+            <option value="2">Strong</option>
+            <option value="1">Medium</option>
+            <option value="0">Soft</option>
+          </select>
           <hr>
           <fieldset class="ui-grid-a">
             <div class="ui-block-a">
@@ -96,6 +110,8 @@
           'low': $("#low").val(),
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
+          'alert_vibe': $("#alert_vibe").val(),
+          'bg_vibe': $("#bg_vibe").val(),
           'api': $("#api").val(),
           'monogram': $("#monogram").val(),
         }
@@ -110,6 +126,8 @@
           'low': $("#low").val(),
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
+          'alert_vibe': $("#alert_vibe").val(),
+          'bg_vibe': $("#bg_vibe").val(),
           'api': $("#api").val(),
           'monogram': $("#monogram").val(),
           'remember' : $("#remember").is(':checked'),
@@ -133,6 +151,8 @@
             'unit': 'mgdl',
             'accountName': '',
             'vibe' : 'new',
+            'alert_vibe' : 'high',
+            'bg_vibe' : 'medium',
             'api' : '',
             
         };
@@ -147,9 +167,13 @@
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
+        $("#alert_vibe option[value='" + old_options.alert_vibe +"']").prop('selected', true);
+        $("#bg_vibe option[value='" + old_options.bg_vibe +"']").prop('selected', true);
 
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
+        $('#alert_vibe').selectmenu("refresh",true);
+        $('#bg_vibe').selectmenu("refresh",true);
         
         $("#b-submit").prop("disabled", true);
          
