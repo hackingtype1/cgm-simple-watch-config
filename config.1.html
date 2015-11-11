@@ -187,7 +187,7 @@
           console.log("Submit");
           var mode = $("#mode").val()
           if (mode == 'none') {
-            jAlert('You must select a mode to submit settings.')
+            alert('You must select a mode to submit settings.')
           } else {
             var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
             window.localStorage.setItem('options', JSON.stringify(storeOptions()));
