@@ -186,8 +186,8 @@
 
         $("#b-submit").click(function() {
           console.log("Submit");
-
-          if ($("#mode").val() == '') {
+          var mode = $("#mode").val()
+          if (mode == '') {
             jAlert('You must select a mode to submit settings.')
           } else {
             var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
