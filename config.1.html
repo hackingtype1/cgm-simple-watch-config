@@ -124,18 +124,7 @@
 
       function storeOptions() {
         var options;
-        if ($("#mode").val()=="Nightscout") {
-        options = {
-          'accountName': $("#accountName").val(),
-          'high': $("#high").val(),
-          'low': $("#low").val(),
-          'unit': $("#unit").val(),
-          'vibe': $("#vibe").val(),
-          'api': $("#api_ns").val(),
-          'monogram': $("#monogram").val(),
-          'remember' : $("#remember").is(':checked'),
-        }
-        } else {
+  
         options = {
           'accountName': $("#accountName").val(),
           'high': $("#high").val(),
@@ -143,9 +132,9 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
+          'api_ns': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
           'remember' : $("#remember").is(':checked'),
-        }
         }
         if ($("#remember").is(':checked'))
         {
@@ -176,6 +165,7 @@
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#api').val(old_options.api);
+        $('#api_ns').val(old_options.api_ns);
         $('#monogram').val(old_options.monogram);
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
