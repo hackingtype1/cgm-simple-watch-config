@@ -160,6 +160,7 @@
         };
         
         //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
+        $('#mode').val('');
         $('#accountName').val(old_options.accountName);
         $('#password').val(old_options.password);
         $('#high').val(old_options.high);
@@ -174,7 +175,7 @@
         $('#unit').selectmenu("refresh",true);
         $('#vibe').selectmenu("refresh",true);
         
-        $("#b-submit").prop("disabled", true);
+        //$("#b-submit").prop("disabled", true);
          
         $("#b-cancel").click(function() {
           console.log("Cancel");
@@ -186,12 +187,16 @@
         $("#b-submit").click(function() {
           console.log("Submit");
 
-          var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-          window.localStorage.setItem('options', JSON.stringify(storeOptions()));
+          if ($("#mode").val() == '') {
+            jAlert('You must select a mode to submit settings.')
+          } else {
+            var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+            window.localStorage.setItem('options', JSON.stringify(storeOptions()));
           
-          console.log("Warping to: " + location);
-          console.log(location);
-          document.location = location;
+            console.log("Warping to: " + location);
+            console.log(location);
+            document.location = location;
+          }
         });
 
       });
