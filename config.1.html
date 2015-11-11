@@ -19,7 +19,7 @@
         <div class="ui-body ui-body-b" id="form-shower">
           <form>
             <select id="mode" style="width: 100%;">
-              <option>Select Mode (REQUIRED):</option>
+              <option value="none">Select Mode (REQUIRED):</option>
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout</option>
               <option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>
@@ -160,7 +160,6 @@
         };
         
         //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
-        $('#mode').val('');
         $('#accountName').val(old_options.accountName);
         $('#password').val(old_options.password);
         $('#high').val(old_options.high);
@@ -187,7 +186,7 @@
         $("#b-submit").click(function() {
           console.log("Submit");
           var mode = $("#mode").val()
-          if (mode == '') {
+          if (mode == 'none') {
             jAlert('You must select a mode to submit settings.')
           } else {
             var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
