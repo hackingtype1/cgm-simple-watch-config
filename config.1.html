@@ -43,13 +43,13 @@
           </form>
         <form name="Carelink" id="Carelink" style="display:none">
           <div data-role="fieldcontain">
-             <label for="accountName">Carelink Username:</label>
+             <label for="accountName_cl">Carelink Username:</label>
           <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
                 autocorrect="off"/>
-          <label for="password">Carelink Password:</label>
-          <input type="password" name="password" id="password" value="" />
-          <label for="remember">Remember Password</label>
-          <input type="checkbox" name="remember" id="remember" />
+          <label for="password_cl">Carelink Password:</label>
+          <input type="password_cl" name="password" id="password" value="" />
+          <label for="remember_cl">Remember Password</label>
+          <input type="checkbox" name="remember_cl" id="remember_cl" />
           </div>
         </form>
         <div class="ui-body ui-body-b" id="subcan">
@@ -104,8 +104,19 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api_ns").val(),
-          'monogram': $("#monogram").val(),
-        }
+          'monogram': $("#monogram").val(), }
+        } else if ($("#mode").val()=="Carelink") {
+          options = {
+          'mode': $("#mode").val(),
+          'accountName_cl': $("#accountName_cl").val(),
+          'password_cl': $("#password_cl").val(),
+          'high': $("#high").val(),
+          'low': $("#low").val(),
+          'unit': $("#unit").val(),
+          'vibe': $("#vibe").val(),
+          'api': $("#api_ns").val(),
+          'monogram': $("#monogram").val(), }
+        
         } else {
            options = {
           'mode': $("#mode").val(),
@@ -128,6 +139,7 @@
   
         options = {
           'accountName': $("#accountName").val(),
+          'accountName_cl': $("#accountName_cl").val(),
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
@@ -136,10 +148,12 @@
           'api_ns': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
           'remember' : $("#remember").is(':checked'),
+          'remember_cl' : $("#remember_cl").is(':checked'),
         }
-        if ($("#remember").is(':checked'))
+        if ($("#remember").is(':checked') || $("#remember_cl").is(':checked'))
         {
           options.password = $("#password").val();
+          options.password_cl = $("#password_cl").val();
         } else 
         {
           options.password = "";
@@ -163,12 +177,15 @@
         //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
         $('#password').val(old_options.password);
+        $('#accountName_cl').val(old_options.accountName_cl);
+        $('#password+cl').val(old_options.password_cl);
         $('#high').val(old_options.high);
         $('#low').val(old_options.low);
         $('#api').val(old_options.api);
         $('#api_ns').val(old_options.api_ns);
         $('#monogram').val(old_options.monogram);
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
+         $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
 
