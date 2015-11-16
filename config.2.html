@@ -22,7 +22,7 @@
               <option value="none">Select Mode (REQUIRED):</option>
               <option value="Share">Share</option>
               <option value="Nightscout">Nightscout</option>
-              <!--<option value="Rogue">Rogue [4 COWGIRLS&BOYS]</option>-->
+              <option value="Carelink">Carelink</option>
             </select>
           </form>
         </div>
@@ -34,7 +34,6 @@
           <input type="password" name="password" id="password" value="" />
           <label for="remember">Remember Password</label>
           <input type="checkbox" name="remember" id="remember" />
-          <label for="monogram">(PWD) Initials: </label>
           <input type="text" name="monogram" id="monogram" value="" autocapitalize="off"
                 autocorrect="off" maxlength="3"/>
         </form>
@@ -44,11 +43,17 @@
                 autocorrect="off"/>
           </div>
           </form>
-        <form name="Rogue" id="Rogue" style="display:none">
+        <form name="Carelink" id="Carelink" style="display:none">
           <div data-role="fieldcontain">
-            <label for="api">API Endpoint:</label>
-            <input type="text" name="api" id="api" value="" autocapitalize="off"
+             <label for="accountName">Carelink Username:</label>
+          <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
                 autocorrect="off"/>
+          <label for="password">Share Password:</label>
+          <input type="password" name="password" id="password" value="" />
+          <label for="remember">Remember Password</label>
+          <input type="checkbox" name="remember" id="remember" />
+          <input type="text" name="monogram" id="monogram" value="" autocapitalize="off"
+                autocorrect="off" maxlength="3"/>
           </div>
         </form>
         <div class="ui-body ui-body-b" id="subcan">
