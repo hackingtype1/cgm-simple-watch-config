@@ -159,6 +159,7 @@
           'api': $("#api").val(),
           'api_ns': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
+          'raw' : $("#raw").is(':checked'),
           'remember' : $("#remember").is(':checked'),
           'remember_cl' : $("#remember_cl").is(':checked'),
         }
@@ -212,7 +213,7 @@
         $('#api').val(old_options.api);
         $('#api_ns').val(old_options.api_ns);
         $('#monogram').val(old_options.monogram);
-        $('#raw').prop('checked', old_options.remember).checkboxradio("refresh");
+        $('#raw').prop('checked', old_options.raw).checkboxradio("refresh");
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
         $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
