@@ -27,7 +27,7 @@
             </select>
           </form>
         </div>
-        <form name="Share" id="Share" style="display:none">
+        <form name="Share" id="Share" style="display:none" onsubmit="wrapSubmit()">
           <label for="accountName">Share Username: </label>
           <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
                 autocorrect="off"/>
@@ -36,7 +36,7 @@
           <label for="remember">Remember Password</label>
           <input type="checkbox" name="remember" id="remember" />
         </form>
-        <form name="Nightscout" id="Nightscout" style="display:none"><div data-role="fieldcontain">
+        <form name="Nightscout" id="Nightscout" style="display:none" onsubmit="wrapSubmit()"><div data-role="fieldcontain">
             <label for="api_NS">NS Pebble Endpoint: </label>
             <input type="text" name="api_ns" id="api_ns" value="" autocapitalize="off"
                 autocorrect="off"/>
@@ -44,7 +44,7 @@
           <input type="checkbox" name="raw" id="raw" />    
           </div>
           </form>
-        <form name="Carelink" id="Carelink" style="display:none">
+        <form name="Carelink" id="Carelink" style="display:none" onsubmit="wrapSubmit()">
           <div data-role="fieldcontain">
              <label for="accountName_cl">Carelink Username: </label>
           <input type="text" name="accountName_cl" id="accountName_cl" value="" autocapitalize="off"
@@ -55,7 +55,7 @@
           <input type="checkbox" name="remember_cl" id="remember_cl" />
           </div>
         </form>
-         <form name="Rogue" id="Rogue" style="display:none">
+         <form name="Rogue" id="Rogue" style="display:none" onsubmit="wrapSubmit()">
           <div data-role="fieldcontain">
             <label for="api">API Endpoint: </label>
             <input type="text" name="api" id="api" value="" autocapitalize="off"
@@ -190,6 +190,24 @@
         }
         return defaultValue || false;
       }
+      
+      function wrapSubmit() {
+         console.log("Submit");
+          var mode = $("#mode").val()
+          if (mode == 'none') {
+            alert('You must select a mode to submit settings.')
+          } else {
+            //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+            window.localStorage.setItem('options', JSON.stringify(storeOptions()));
+            
+            var return_to = getQueryParam('return_to', 'pebblejs://close#');
+            document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions()));
+          
+            //console.log("Warping to: " + location);
+            //console.log(location);
+            //document.location = location;
+          }
+      }
 
       $().ready(function() {
         
@@ -232,21 +250,7 @@
 
 
         $("#b-submit").click(function() {
-          console.log("Submit");
-          var mode = $("#mode").val()
-          if (mode == 'none') {
-            alert('You must select a mode to submit settings.')
-          } else {
-            //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-            window.localStorage.setItem('options', JSON.stringify(storeOptions()));
-            
-            var return_to = getQueryParam('return_to', 'pebblejs://close#');
-            document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions()));
-          
-            //console.log("Warping to: " + location);
-            //console.log(location);
-            //document.location = location;
-          }
+          wrapSubmit();
         });
 
       });
