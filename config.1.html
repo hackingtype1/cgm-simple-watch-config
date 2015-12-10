@@ -27,7 +27,7 @@
             </select>
           </form>
         </div>
-        <form name="Share" id="Share" style="display:none">
+        <form name="Share" id="Share" style="display:none" onsubmit="wrapSubmit()">
           <label for="accountName">Share Username: </label>
           <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
                 autocorrect="off"/>
@@ -36,13 +36,15 @@
           <label for="remember">Remember Password</label>
           <input type="checkbox" name="remember" id="remember" />
         </form>
-        <form name="Nightscout" id="Nightscout" style="display:none"><div data-role="fieldcontain">
+        <form name="Nightscout" id="Nightscout" style="display:none" onsubmit="wrapSubmit()"><div data-role="fieldcontain">
             <label for="api_NS">NS Pebble Endpoint: </label>
             <input type="text" name="api_ns" id="api_ns" value="" autocapitalize="off"
                 autocorrect="off"/>
+            <label for="raw">Show Raw (EGV from unfiltered value) when data is not "clean"</label>
+          <input type="checkbox" name="raw" id="raw" />    
           </div>
           </form>
-        <form name="Carelink" id="Carelink" style="display:none">
+        <form name="Carelink" id="Carelink" style="display:none" onsubmit="wrapSubmit()">
           <div data-role="fieldcontain">
              <label for="accountName_cl">Carelink Username: </label>
           <input type="text" name="accountName_cl" id="accountName_cl" value="" autocapitalize="off"
@@ -53,7 +55,7 @@
           <input type="checkbox" name="remember_cl" id="remember_cl" />
           </div>
         </form>
-         <form name="Rogue" id="Rogue" style="display:none">
+         <form name="Rogue" id="Rogue" style="display:none" onsubmit="wrapSubmit()">
           <div data-role="fieldcontain">
             <label for="api">API Endpoint: </label>
             <input type="text" name="api" id="api" value="" autocapitalize="off"
@@ -98,6 +100,7 @@
           $("#form-shower").show();
           $("#subcan").show();
           $('#remember').prop('checked', $("#remember").is(':checked'));
+          
           $("#b-submit").prop("disabled", false);
       })
       function saveOptions() {
@@ -112,7 +115,8 @@
           'unit': $("#unit").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api_ns").val(),
-          'monogram': $("#monogram").val(), }
+          'monogram': $("#monogram").val(),
+          'raw': $('#raw').is(':checked'), }
         } else if ($("#mode").val()=="Carelink") {
           options = {
           'mode': $("#mode").val(),
@@ -155,6 +159,7 @@
           'api': $("#api").val(),
           'api_ns': $("#api_ns").val(),
           'monogram': $("#monogram").val(),
+          'raw' : $("#raw").is(':checked'),
           'remember' : $("#remember").is(':checked'),
           'remember_cl' : $("#remember_cl").is(':checked'),
         }
@@ -185,6 +190,24 @@
         }
         return defaultValue || false;
       }
+      
+      function wrapSubmit() {
+         console.log("Submit");
+          var mode = $("#mode").val()
+          if (mode == 'none') {
+            alert('You must select a mode to submit settings.')
+          } else {
+            //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+            window.localStorage.setItem('options', JSON.stringify(storeOptions()));
+            
+            var return_to = getQueryParam('return_to', 'pebblejs://close#');
+            document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions()));
+          
+            //console.log("Warping to: " + location);
+            //console.log(location);
+            //document.location = location;
+          }
+      }
 
       $().ready(function() {
         
@@ -208,8 +231,9 @@
         $('#api').val(old_options.api);
         $('#api_ns').val(old_options.api_ns);
         $('#monogram').val(old_options.monogram);
+        $('#raw').prop('checked', old_options.raw).checkboxradio("refresh");
         $('#remember').prop('checked', old_options.remember).checkboxradio("refresh");
-         $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
+        $('#remember_cl').prop('checked', old_options.remember_cl).checkboxradio("refresh");
         $("#unit option[value='"+ old_options.unit + "']").prop('selected', true);
         $("#vibe option[value='" + old_options.vibe +"']").prop('selected', true);
 
@@ -226,21 +250,7 @@
 
 
         $("#b-submit").click(function() {
-          console.log("Submit");
-          var mode = $("#mode").val()
-          if (mode == 'none') {
-            alert('You must select a mode to submit settings.')
-          } else {
-            //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-            window.localStorage.setItem('options', JSON.stringify(storeOptions()));
-            
-            var return_to = getQueryParam('return_to', 'pebblejs://close#');
-            document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions()));
-          
-            //console.log("Warping to: " + location);
-            //console.log(location);
-            //document.location = location;
-          }
+          wrapSubmit();
         });
 
       });
