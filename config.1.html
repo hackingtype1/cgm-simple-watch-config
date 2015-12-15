@@ -91,9 +91,31 @@
             </div>
           </fieldset>
         </div>
+        <div class="ui-body ui-body-b" id="codes">
+          <h2>Error Codes</h2>
+          <p>log: Username or Password is incorrect</p>
+          <p>tot: time out error when getting data</p>
+          <p>svr: error with date from server</p>
+          <p>exc: exception; typically no data present</p>
+          <p>set: no watchface settings available</p>
+          <p>rst: unrecoverable communication error (reset watchface and/or pebble smartphone app)</p>
+          <p>ast: app message timeout</p>
+          <p>asr: app message send rejected</p>
+          <p>anc: app not connected</p>
+          <p>anr: app not running</p>
+          <p>aia: invalid argument</p>
+          <p>aby: app message busy</p>
+          <p>abo: buffer overflow</p>
+          <p>aar: message already released</p>
+          <p>car: callback already registered</p>
+          <p>cnr: callback not registered</p>
+          <p>oom: out of memory</p>
+          <p>acd: message closed</p>
+          <p>aie: internal error</p>   
+        </div>
       </div>
     </div>
-    </div>
+
     <script>
       $("#mode").on("change", function() {
           $("#" + $(this).val()).show().siblings().hide();
