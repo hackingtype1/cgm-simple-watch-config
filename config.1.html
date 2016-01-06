@@ -96,7 +96,8 @@
               <input type="submit" data-theme="a" id="b-submit" value="Submit"/>
             </div>
           </fieldset>
-          <div class="ui-body ui-body-b" id="codes">
+        </div>
+        <div class="ui-body ui-body-b" id="codes">
           <h3>Error Codes</h3>
           <h4>In most cases, either restarting watchface, checking bluetooth connection and/or relaunching the pebble smartphone app will address and fix these issues</h4>
           <p>log: incorrect username and/or password </p>
@@ -119,8 +120,6 @@
           <p>acd: message closed</p>
           <p>aie: internal error</p>   
         </div>
-        </div>
-      
       </div>
     </div>
 
@@ -253,16 +252,8 @@
             'api' : '',
             
         };
-        $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
-        $("#mode").val().show().siblings().hide();
-          $("#form-shower").show();
-          $("#subcan").show();
-          $('#remember').prop('checked', $("#remember").is(':checked'));
-          $('#region').selectmenu("refresh",true);
-          $("#b-submit").prop("disabled", false);
-        $('#mode').selectmenu("refresh",true);
         
-        $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
+        //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
         $('#password').val(old_options.password);
         $('#accountName_cl').val(old_options.accountName_cl);
