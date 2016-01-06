@@ -185,6 +185,7 @@
           'high': $("#high").val(),
           'low': $("#low").val(),
           'unit': $("#unit").val(),
+          'mode': $("#mode").val(),
           'vibe': $("#vibe").val(),
           'api': $("#api").val(),
           'api_ns': $("#api_ns").val(),
@@ -251,8 +252,10 @@
             'api' : '',
             
         };
+        $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
+        $('#mode').selectmenu("refresh",true);
         
-        //$("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
+        $("#mode option[value='"+ old_options.mode + "']").prop('selected', true);
         $('#accountName').val(old_options.accountName);
         $('#password').val(old_options.password);
         $('#accountName_cl').val(old_options.accountName_cl);
