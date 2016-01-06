@@ -129,7 +129,7 @@
           $("#form-shower").show();
           $("#subcan").show();
           $('#remember').prop('checked', $("#remember").is(':checked'));
-          
+          $('#region').selectmenu("refresh",true);
           $("#b-submit").prop("disabled", false);
       })
       function saveOptions() {
