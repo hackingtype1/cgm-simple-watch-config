@@ -28,6 +28,14 @@
           </form>
         </div>
         <form name="Share" id="Share" style="display:none" onsubmit="wrapSubmit()">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+	    <legend>Your Location:</legend>
+     	<input type="radio" name="region-choice" id="region-choice-1" value="us" checked="checked" />
+     	<label for="radio-choice-1">USA</label>
+     	<input type="radio" name="region-choice" id="region-choice-2" value="other"  />
+     	<label for="radio-choice-2">Outside USA</label>
+        </fieldset>
+        
           <label for="accountName">Share Username: </label>
           <input type="text" name="accountName" id="accountName" value="" autocapitalize="off"
                 autocorrect="off"/>
